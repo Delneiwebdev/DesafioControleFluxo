@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Contador {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // Recebendo os dois números inteiros via terminal
+            System.out.print("Digite o primeiro número: ");
+            int primeiroNumero = scanner.nextInt();
+
+            System.out.print("Digite o segundo número: ");
+            int segundoNumero = scanner.nextInt();
+
+            // Verificando se o primeiro número é maior que o segundo
+            if (primeiroNumero >= segundoNumero) {
+                throw new ParametrosInvalidosException("O segundo parâmetro deve ser maior que o primeiro");
+            }
+
+            // Calculando a quantidade de interações e imprimindo os números incrementados
+            int quantidadeIntercacoes = segundoNumero - primeiroNumero;
+            for (int i = 1; i <= quantidadeIntercacoes; i++) {
+                System.out.println("Imprimindo o número " + (primeiroNumero + i));
+            }
+
+        } catch (ParametrosInvalidosException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
